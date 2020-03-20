@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimerCard renders without crashing 1`] = `
+<div
+  className="flex flex-col border rounded p-6 max-w-md"
+>
+  <div
+    className="flex justify-center"
+  >
+    <h1
+      className="text-red-600 font-bold text-xl"
+    >
+      Focus
+    </h1>
+  </div>
+  <div
+    className="flex justify-center mt-2"
+  >
+    <p
+      className="text-gray-800 font-bold text-5xl"
+    >
+      25:00
+    </p>
+  </div>
+  <div
+    className="inline-flex justify-center w-auto mt-4"
+  >
+    <Button
+      className="mr-2"
+      isDisabled={false}
+      variant="primary"
+    >
+      Start
+    </Button>
+    <Button
+      isDisabled={false}
+      variant="secondary"
+    >
+      Stop
+    </Button>
+  </div>
+</div>
+`;

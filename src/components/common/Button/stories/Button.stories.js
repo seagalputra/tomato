@@ -1,4 +1,5 @@
 import React from 'react'
+import { action } from '@storybook/addon-actions'
 
 import Button from '..'
 
@@ -9,8 +10,29 @@ export default {
   excludeStories: /.*Data$/
 }
 
-export const Primary = () => <Button variant="primary">Button</Button>
+export const actionsData = {
+  onClick: action('Click Button!')
+}
 
-export const Secondary = () => <Button variant="secondary">Button</Button>
+export const buttonData = {
+  variant: 'primary',
+  isDisabled: false
+}
 
-export const Disabled = () => <Button isDisabled>Button</Button>
+export const Primary = () => (
+  <Button {...buttonData} {...actionsData}>
+    Start
+  </Button>
+)
+
+export const Secondary = () => (
+  <Button {...buttonData} variant="secondary" {...actionsData}>
+    Stop
+  </Button>
+)
+
+export const Disabled = () => (
+  <Button {...buttonData} isDisabled {...actionsData}>
+    Start
+  </Button>
+)

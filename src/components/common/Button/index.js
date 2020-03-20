@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ children, variant, isDisabled }) => {
+const Button = ({ children, variant, isDisabled, onClick, className }) => {
   if (isDisabled)
     return (
       <button
         type="button"
         disabled
-        className="bg-blue-500 opacity-75 text-white font-bold py-2 px-4 rounded"
+        className={`bg-blue-500 opacity-75 text-white font-bold py-2 px-4 rounded ${className}`}
+        onClick={onClick}
       >
         {children}
       </button>
@@ -20,7 +21,8 @@ const Button = ({ children, variant, isDisabled }) => {
         variant === 'primary'
           ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold'
           : 'bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white border border-blue-500 hover:border-transparent font-semibold'
-      } py-2 px-4 rounded`}
+      } py-2 px-4 rounded ${className}`}
+      onClick={onClick}
     >
       {children}
     </button>
@@ -30,6 +32,7 @@ const Button = ({ children, variant, isDisabled }) => {
 Button.propTypes = {
   children: PropTypes.string.isRequired,
   variant: PropTypes.string,
+  className: PropTypes.string,
   isDisabled: PropTypes.bool
 }
 
