@@ -6,10 +6,7 @@ describe('TimerCard', () => {
   it('renders without crashing', () => {
     const mockData = {
       state: 'FOCUS',
-      times: {
-        minutes: '25',
-        seconds: '00'
-      }
+      timer: 1500
     }
 
     const component = shallow(<TimerCard {...mockData} />)

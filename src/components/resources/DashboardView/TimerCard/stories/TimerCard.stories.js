@@ -11,10 +11,7 @@ export default {
 
 export const timerData = {
   state: 'FOCUS',
-  times: {
-    minutes: '25',
-    seconds: '00'
-  }
+  timer: 1500
 }
 
 export const actionsData = {

@@ -9,9 +9,15 @@ const status = {
   SHORT_BREAK: 'Short Break'
 }
 
-const TimerCard = ({ onStart, onStop, state, times }) => {
-  const { minutes, seconds } = times
+const getMinute = time => {
+  return String(Math.floor(time / 60))
+}
 
+const getSecond = time => {
+  return String(time % 60).padStart(2, '0')
+}
+
+const TimerCard = ({ onStart, onStop, state, timer }) => {
   return (
     <div className="flex flex-col p-16 bg-gray-800 border-b">
       <div className="flex justify-center">
@@ -28,7 +34,7 @@ const TimerCard = ({ onStart, onStop, state, times }) => {
 
       <div className="flex justify-center mt-2">
         <p className="text-white font-bold text-5xl">
-          {`${minutes} : ${seconds}`}
+          {`${getMinute(timer)} : ${getSecond(timer)}`}
         </p>
       </div>
 
@@ -47,10 +53,7 @@ const TimerCard = ({ onStart, onStop, state, times }) => {
 
 TimerCard.propTypes = {
   state: PropTypes.string,
-  times: PropTypes.shape({
-    minutes: PropTypes.string.isRequired,
-    seconds: PropTypes.string.isRequired
-  }),
+  timer: PropTypes.number.isRequired,
   onStart: PropTypes.func,
   onStop: PropTypes.func
 }

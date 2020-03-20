@@ -1,26 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import TimerCard from 'components/resources/DashboardView/TimerCard'
 
 import timerImage from 'assets/img/timer.svg'
 
-const getMinute = time => {
-  return String(Math.floor(time / 60))
-}
-
-const getSecond = time => {
-  return String(time % 60).padStart(2, '0')
-}
-
 const DashboardView = () => {
-  const times = {
-    minutes: getMinute(1500),
-    seconds: getSecond(1500)
+  const [timer, setTimer] = useState(1500)
+  const [isActive, setIsActive] = useState(false)
+
+  const onStartTimer = () => {
+    setIsActive(true)
   }
+
+  const onStopTimer = () => {
+    setTimer(1500)
+    setIsActive(false)
+  }
+
+  useEffect(() => {
+    let interval = null
+
+    if (isActive) {
+      interval = setInterval(() => {
+        setTimer(time => time - 1)
+      }, 1000)
+    } else if (!isActive && timer !== 0) {
+      clearInterval(interval)
+    }
+
+    if (timer === 0) clearInterval(interval)
+
+    return () => clearInterval(interval)
+  }, [isActive, timer])
 
   return (
     <main>
-      <TimerCard times={times} state="SHORT_BREAK" />
+      <TimerCard
+        timer={timer}
+        state="FOCUS"
+        onStart={onStartTimer}
+        onStop={onStopTimer}
+      />
 
       <div className="flex flex-col px-6 py-16 border-b">
         <img

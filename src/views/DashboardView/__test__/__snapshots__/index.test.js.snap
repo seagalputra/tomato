@@ -3,13 +3,10 @@
 exports[`DashboardView renders without crashing 1`] = `
 <main>
   <TimerCard
-    state="SHORT_BREAK"
-    times={
-      Object {
-        "minutes": "25",
-        "seconds": "00",
-      }
-    }
+    onStart={[Function]}
+    onStop={[Function]}
+    state="FOCUS"
+    timer={1500}
   />
   <div
     className="flex flex-col px-6 py-16 border-b"
