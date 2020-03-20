@@ -6,12 +6,15 @@ import TimerCard from '..'
 export default {
   component: TimerCard,
   title: 'Timer Card',
-  decorators: [story => <div style={{ padding: '2rem' }}>{story()}</div>],
   excludeStories: /.*Data$/
 }
 
 export const timerData = {
-  state: 'FOCUS'
+  state: 'FOCUS',
+  times: {
+    minutes: '25',
+    seconds: '00'
+  }
 }
 
 export const actionsData = {

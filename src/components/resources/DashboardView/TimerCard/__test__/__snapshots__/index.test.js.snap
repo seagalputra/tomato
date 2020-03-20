@@ -2,13 +2,13 @@
 
 exports[`TimerCard renders without crashing 1`] = `
 <div
-  className="flex flex-col border rounded p-6 max-w-md"
+  className="flex flex-col p-16 bg-gray-800 border-b"
 >
   <div
     className="flex justify-center"
   >
     <h1
-      className="text-red-600 font-bold text-xl"
+      className="text-red-400 font-bold text-xl"
     >
       Focus
     </h1>
@@ -17,16 +17,16 @@ exports[`TimerCard renders without crashing 1`] = `
     className="flex justify-center mt-2"
   >
     <p
-      className="text-gray-800 font-bold text-5xl"
+      className="text-white font-bold text-5xl"
     >
-      25:00
+      25 : 00
     </p>
   </div>
   <div
     className="inline-flex justify-center w-auto mt-4"
   >
     <Button
-      className="mr-2"
+      className="mr-5"
       isDisabled={false}
       variant="primary"
     >

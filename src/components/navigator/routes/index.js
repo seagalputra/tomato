@@ -7,7 +7,11 @@ const DashboardView = lazy(() => import('../../../views/DashboardView'))
 const Routes = () => (
   <Router>
     <NavigationBar />
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="text-center mt-3 text-base font-bold">Loading...</div>
+      }
+    >
       <Switch>
         <Route exact path="/" component={DashboardView} />
       </Switch>

@@ -9,15 +9,17 @@ const status = {
   SHORT_BREAK: 'Short Break'
 }
 
-const TimerCard = ({ onStart, onStop, state }) => {
+const TimerCard = ({ onStart, onStop, state, times }) => {
+  const { minutes, seconds } = times
+
   return (
-    <div className="flex flex-col border rounded p-6 max-w-md">
+    <div className="flex flex-col p-16 bg-gray-800 border-b">
       <div className="flex justify-center">
         <h1
           className={`${
             state === 'LONG_BREAK' || state === 'SHORT_BREAK'
-              ? 'text-green-600'
-              : 'text-red-600'
+              ? 'text-green-400'
+              : 'text-red-400'
           } font-bold text-xl`}
         >
           {status[state]}
@@ -25,11 +27,13 @@ const TimerCard = ({ onStart, onStop, state }) => {
       </div>
 
       <div className="flex justify-center mt-2">
-        <p className="text-gray-800 font-bold text-5xl">25:00</p>
+        <p className="text-white font-bold text-5xl">
+          {`${minutes} : ${seconds}`}
+        </p>
       </div>
 
       <div className="inline-flex justify-center w-auto mt-4">
-        <Button className="mr-2" onClick={onStart} variant="primary">
+        <Button className="mr-5" onClick={onStart} variant="primary">
           Start
         </Button>
 
@@ -42,9 +46,17 @@ const TimerCard = ({ onStart, onStop, state }) => {
 }
 
 TimerCard.propTypes = {
-  state: PropTypes.string.isRequired,
+  state: PropTypes.string,
+  times: PropTypes.shape({
+    minutes: PropTypes.string.isRequired,
+    seconds: PropTypes.string.isRequired
+  }),
   onStart: PropTypes.func,
   onStop: PropTypes.func
+}
+
+TimerCard.defaultProps = {
+  state: 'FOCUS'
 }
 
 export default TimerCard

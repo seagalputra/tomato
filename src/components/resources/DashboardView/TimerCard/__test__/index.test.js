@@ -4,9 +4,15 @@ import TimerCard from '..'
 
 describe('TimerCard', () => {
   it('renders without crashing', () => {
-    const state = 'FOCUS'
+    const mockData = {
+      state: 'FOCUS',
+      times: {
+        minutes: '25',
+        seconds: '00'
+      }
+    }
 
-    const component = shallow(<TimerCard state={state} />)
+    const component = shallow(<TimerCard {...mockData} />)
     expect(component).toMatchSnapshot()
   })
 })
