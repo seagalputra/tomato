@@ -4,16 +4,37 @@ import TimerCard from 'components/resources/DashboardView/TimerCard'
 
 import timerImage from 'assets/img/timer.svg'
 
+const getTimer = state => {
+  if (state === 'SHORT_BREAK') return 300
+
+  if (state === 'LONG_BREAK') return 900
+
+  return 1500
+}
+
+const changeTimerState = currentIteration => {
+  if (currentIteration <= 6) {
+    if (currentIteration % 2 === 0) return 'FOCUS'
+
+    return 'SHORT_BREAK'
+  }
+
+  return 'LONG_BREAK'
+}
+
 const DashboardView = () => {
   const [timer, setTimer] = useState(1500)
+  const [timerState, setTimerState] = useState('FOCUS')
+  const [iteration, setIteration] = useState(0)
   const [isActive, setIsActive] = useState(false)
 
   const onStartTimer = () => {
-    setIsActive(true)
+    setIsActive(!isActive)
+    setIteration(iteration + 1)
   }
 
-  const onStopTimer = () => {
-    setTimer(1500)
+  const onStopTimer = state => {
+    setTimer(getTimer(state))
     setIsActive(false)
   }
 
@@ -24,22 +45,29 @@ const DashboardView = () => {
       interval = setInterval(() => {
         setTimer(time => time - 1)
       }, 1000)
+
+      if (timer === 0) {
+        clearInterval(interval)
+        setTimerState(changeTimerState(iteration))
+        setIsActive(false)
+      }
     } else if (!isActive && timer !== 0) {
       clearInterval(interval)
+    } else {
+      setTimer(getTimer(timerState))
     }
 
-    if (timer === 0) clearInterval(interval)
-
     return () => clearInterval(interval)
-  }, [isActive, timer])
+  }, [isActive, timer, timerState, iteration])
 
   return (
     <main>
       <TimerCard
         timer={timer}
-        state="FOCUS"
+        state={timerState}
         onStart={onStartTimer}
         onStop={onStopTimer}
+        isActive={isActive}
       />
 
       <div className="flex flex-col px-6 py-16 border-b">

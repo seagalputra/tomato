@@ -6,7 +6,13 @@ import Button from '..'
 export default {
   component: Button,
   title: 'Button',
-  decorators: [story => <div style={{ padding: '2rem' }}>{story()}</div>],
+  decorators: [
+    story => (
+      <div className="bg-gray-800" style={{ padding: '2rem' }}>
+        {story()}
+      </div>
+    )
+  ],
   excludeStories: /.*Data$/
 }
 

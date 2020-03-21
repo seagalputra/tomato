@@ -10,14 +10,14 @@ const status = {
 }
 
 const getMinute = time => {
-  return String(Math.floor(time / 60))
+  return String(Math.floor(time / 60)).padStart(2, '0')
 }
 
 const getSecond = time => {
   return String(time % 60).padStart(2, '0')
 }
 
-const TimerCard = ({ onStart, onStop, state, timer }) => {
+const TimerCard = ({ onStart, onStop, state, timer, isActive }) => {
   return (
     <div className="flex flex-col p-16 bg-gray-800 border-b">
       <div className="flex justify-center">
@@ -40,10 +40,10 @@ const TimerCard = ({ onStart, onStop, state, timer }) => {
 
       <div className="inline-flex justify-center w-auto mt-4">
         <Button className="mr-5" onClick={onStart} variant="primary">
-          Start
+          {isActive ? 'Pause' : 'Start'}
         </Button>
 
-        <Button onClick={onStop} variant="secondary">
+        <Button onClick={() => onStop(state)} variant="secondary">
           Stop
         </Button>
       </div>
@@ -55,11 +55,13 @@ TimerCard.propTypes = {
   state: PropTypes.string,
   timer: PropTypes.number.isRequired,
   onStart: PropTypes.func,
-  onStop: PropTypes.func
+  onStop: PropTypes.func,
+  isActive: PropTypes.bool
 }
 
 TimerCard.defaultProps = {
-  state: 'FOCUS'
+  state: 'FOCUS',
+  isActive: false
 }
 
 export default TimerCard

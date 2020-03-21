@@ -34,6 +34,7 @@ exports[`TimerCard renders without crashing 1`] = `
     </Button>
     <Button
       isDisabled={false}
+      onClick={[Function]}
       variant="secondary"
     >
       Stop

@@ -3,6 +3,7 @@
 exports[`DashboardView renders without crashing 1`] = `
 <main>
   <TimerCard
+    isActive={false}
     onStart={[Function]}
     onStop={[Function]}
     state="FOCUS"
