@@ -5,7 +5,7 @@ import NavigationBar from 'components/common/NavigationBar'
 const DashboardView = lazy(() => import('../../../views/DashboardView'))
 
 const Routes = () => (
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <NavigationBar />
     <Suspense
       fallback={
