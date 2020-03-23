@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DashboardView renders without crashing 1`] = `
-<main>
+<Fragment>
   <TimerCard
     isActive={false}
     onStart={[Function]}
@@ -10,7 +10,7 @@ exports[`DashboardView renders without crashing 1`] = `
     timer={1500}
   />
   <div
-    className="flex flex-col px-6 py-16 border-b"
+    className="flex flex-col px-6 py-16"
   >
     <img
       alt="Timer illustration"
@@ -31,5 +31,5 @@ exports[`DashboardView renders without crashing 1`] = `
       Pomodoro technique is one of the time management technique. This method developed by Francesco Cirillo in late 1980s. This technique uses a timer to break down work into intevals, commonly use 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the italian word from 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student.
     </p>
   </div>
-</main>
+</Fragment>
 `;

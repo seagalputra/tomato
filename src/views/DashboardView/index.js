@@ -61,7 +61,7 @@ const DashboardView = () => {
   }, [isActive, timer, timerState, iteration])
 
   return (
-    <main>
+    <>
       <TimerCard
         timer={timer}
         state={timerState}
@@ -70,7 +70,7 @@ const DashboardView = () => {
         isActive={isActive}
       />
 
-      <div className="flex flex-col px-6 py-16 border-b">
+      <div className="flex flex-col px-6 py-16">
         <img
           className="w-56 self-center"
           src={timerImage}
@@ -89,7 +89,7 @@ const DashboardView = () => {
           tomato-shaped kitchen timer that Cirillo used as a university student.
         </p>
       </div>
-    </main>
+    </>
   )
 }
 

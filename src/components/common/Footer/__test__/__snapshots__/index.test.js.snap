@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders without crashing 1`] = `
+<footer
+  className="w-full py-4 bg-white border-t bottom-auto"
+>
+  <p
+    className="text-center font-semibold"
+  >
+    Created with Love by 
+    <a
+      className="hover:text-blue-600"
+      href="http://github.com/seagalputra"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      @seagalputra
+    </a>
+  </p>
+</footer>
+`;
