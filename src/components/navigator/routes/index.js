@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Spinner from 'react-spinkit'
 import NavigationBar from 'components/common/NavigationBar'
 import Footer from 'components/common/Footer'
 
@@ -12,8 +13,8 @@ const Routes = () => (
       <main className="flex-grow">
         <Suspense
           fallback={
-            <div className="text-center mt-3 text-base font-bold">
-              Loading...
+            <div className="text-center">
+              <Spinner name="line-scale-pulse-out-rapid" />
             </div>
           }
           className="flex flex-col min-h-screen"

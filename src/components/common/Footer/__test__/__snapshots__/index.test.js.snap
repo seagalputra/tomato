@@ -17,5 +17,25 @@ exports[`Footer renders without crashing 1`] = `
       @seagalputra
     </a>
   </p>
+  <div
+    className="text-center text-xs mt-2"
+  >
+    Icons made by 
+    <a
+      className="hover:text-blue-600"
+      href="https://www.flaticon.com/authors/freepik"
+      title="Freepik"
+    >
+      Freepik
+    </a>
+     from 
+    <a
+      className="hover:text-blue-600"
+      href="https://www.flaticon.com/"
+      title="Flaticon"
+    >
+      www.flaticon.com
+    </a>
+  </div>
 </footer>
 `;
